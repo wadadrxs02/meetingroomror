@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+  <h1 class="display-4"> <strong>Name:</strong>
+  <%= @user.name %></h1>
+   <h1 class="display-4"> <strong>Phone Number:</strong>
+  <%= @user.phoneno %></h1>
+</div>
+
+
+<%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary btn-lg" %> 
+<%= link_to 'Back', users_path, class:"btn btn-dark btn-lg" %>

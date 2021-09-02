@@ -1,0 +1,49 @@
+
+<%= simple_form_for(@booking) do |f| %>
+
+
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="row col-md-12">
+        <div class=" form-inputs form-group form-control-lg">
+         <div class=" mb-3">
+            <%= f.input :title, class:'form-control' %>
+         </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 mb-3">
+                <%= f.input :date_book, as: :date, html5: true %>
+                </div>
+
+                <div class="col-md-4 col-sm-12  mb-3">
+                <%= f.input :time_start, as: :time, html5: true %>
+                </div>
+
+                <div class="col-md-4 col-sm-12 mb-3">
+                <%= f.input :time_end, as: :time, html5: true %>
+                </div>
+            </div>
+             <div class=" mb-3">
+            <%= f.input :pax %>
+         </div>
+
+             <div class=" mb-3">
+            <%= f.association :user %>
+         </div>
+
+             <div class=" mb-3">
+            <%= f.association :meetingroom %>
+         </div>
+
+        <br>
+        <div class="form-actions col-12">
+        <%= f.button :submit, class:"btn btn-info btn-lg" %>
+        <%= link_to 'Back', bookings_path, class:"btn btn-danger text-white btn-lg"  %>
+
+        </div>
+  </div>
+</div>
+<% end %>
+
+
+
+

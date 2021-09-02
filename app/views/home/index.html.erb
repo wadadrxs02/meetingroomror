@@ -1,0 +1,23 @@
+
+
+<% if current_admin %>
+<% if current_admin.admin? %>
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="container-fluid">
+  <h3>Meeting Rooms</h3>
+  <ul class="nav nav-pills">
+     <% @meetingrooms.each do |meetingroom| %>
+    <li class="active">
+        <%= link_to meetingroom.name, meetingroom %>
+   
+</a></li>
+    <% end %>
+  </ul>
+</div>
+<% else %>
+
+<% end %>
+<% end %>

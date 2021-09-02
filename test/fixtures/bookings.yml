@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  date_book: 2021-09-01
+  time_start: 2021-09-01 03:18:20
+  time_end: 2021-09-01 03:18:20
+  pax: 1
+  user: one
+  meetingroom: one
+
+two:
+  title: MyString
+  date_book: 2021-09-01
+  time_start: 2021-09-01 03:18:20
+  time_end: 2021-09-01 03:18:20
+  pax: 1
+  user: two
+  meetingroom: two
