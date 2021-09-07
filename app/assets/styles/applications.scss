@@ -4,6 +4,9 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -49,7 +52,7 @@
 }
 body {
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'Roboto', sans-serif !important;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -218,7 +221,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: var(--bs-font-monospace);
+    font-family: 'Roboto', sans-serif !important;
   font-size: 1em;
   direction: ltr;
   unicode-bidi: bidi-override;
@@ -5244,7 +5247,7 @@ fieldset:disabled .btn {
   z-index: 1080;
   display: block;
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'Roboto', sans-serif !important;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5352,7 +5355,7 @@ fieldset:disabled .btn {
   z-index: 1070;
   display: block;
   max-width: 276px;
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'Roboto', sans-serif !important;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;

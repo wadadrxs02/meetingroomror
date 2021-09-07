@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'home/index'
+  # get "partial/index"
   resources :bookings
   resources :meetingrooms
   resources :users
@@ -8,12 +10,11 @@ Rails.application.routes.draw do
   # root to: "home#index"
   devise_scope :admin do
     authenticated :admin do
-      root 'home#index', as: :authenticated_root
+      root "home#index", as: :authenticated_root
     end
 
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      root "devise/sessions#new", as: :unauthenticated_root
     end
   end
-
 end

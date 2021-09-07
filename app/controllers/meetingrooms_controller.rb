@@ -57,13 +57,14 @@ class MeetingroomsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_meetingroom
-      @meetingroom = Meetingroom.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def meetingroom_params
-      params.require(:meetingroom).permit(:name, :capacity)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_meetingroom
+    @meetingroom = Meetingroom.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def meetingroom_params
+    params.require(:meetingroom).permit(:name, :capacity)
+  end
 end

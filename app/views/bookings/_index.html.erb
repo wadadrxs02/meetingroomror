@@ -1,0 +1,55 @@
+<%# <p id="notice"><%= notice %>
+<h1 class="text-center">Booking List</h1>
+<div class="card">
+  <div class="card-body">
+    <table id="BookingTable" class='table table-striped table-hover table-lg'>
+      <thead class="table-dark">
+        <tr class="text-center">
+          <th >Title</th>
+          <th >Date Event</th>
+          <th >Time start</th>
+          <th >Time end</th>
+          <th >Pax</th>
+          <th >Meeting Room</th>
+          <th >Booking Person</th>
+          <th >Date book</th>
+          <% if current_admin %>
+            <% if current_admin.admin? %>
+              <th >Option</th>
+            <% else %>
+            <% end %>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% Booking.all.each do |booking| %>
+          <tr class="text-center">
+            <td><%= link_to booking.title, booking %></td>
+            <td><%= local_time(booking.time_start, format: '%e/%m/%Y') %></td>
+            <td><%= local_time(booking.time_start, format: '%l:%M %P') %></td>
+            <td><%= local_time(booking.time_end, format: '%l:%M %P') %></td>
+            <td><%= booking.pax %></td>
+            <td><%= booking.meetingroom_name %></td>
+            <td><%= booking.user_name %></td>
+            <td><%= local_time(booking.date_book, format: '%e/%m/%Y') %></td>
+            <% if current_admin %>
+              <% if current_admin.admin? %>
+                <td>
+                  <%= link_to 'Edit', edit_booking_path(booking), class:'btn btn-outline-success text-success'  %>
+                  <%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger text-danger' %></td>
+              <% else %>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<%= link_to '+ New Booking', new_booking_path, class:"btn btn-info btn-lg text-dark" %>
+<script>
+  $(document).ready(function() {
+    var MRTable = $("#BookingTable").DataTable({})
+  });
+</script>

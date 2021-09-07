@@ -1,31 +1,18 @@
-<p id="notice"><%= notice %></p>
-
 <div class="jumbotron">
   <h1 class="display-4"> <strong>Title:</strong>
-   <%= @booking.title %></h1>
-
-   <h1 class="display-4"> <strong>Booking Date:</strong>
-   <%= @booking.date_book %></h1>
-
-   <h1 class="display-4"> <strong>Time start:</strong>
-   <%= @booking.time_start %></h1>
-
-   <h1 class="display-4"> <strong>Time end:</strong>
-   <%= @booking.time_end %></h1>
-
-   <h1 class="display-4"> <strong>Pax:</strong>
-   <%= @booking.pax %></h1>
-
-   <h1 class="display-4"> <strong>User:</strong>
-   <%= @booking.user_id %></h1>
-
-   <h1 class="display-4"> <strong>Meeting Room:</strong>
-   <%= @booking.meetingroom_id %></h1>
-
+    <%= @booking.title %></h1>
+  <h1 class="display-4"> <strong>Booking Date:</strong>
+    <%= @booking.date_book %></h1>
+  <h1 class="display-4"> <strong>Time start:</strong>
+    <%= @booking.time_start %></h1>
+  <h1 class="display-4"> <strong>Time end:</strong>
+    <%= @booking.time_end %></h1>
+  <h1 class="display-4"> <strong>Pax:</strong>
+    <%= @booking.pax %></h1>
+  <h1 class="display-4"> <strong>User:</strong>
+    <%= @booking.user_id %></h1>
+  <h1 class="display-4"> <strong>Meeting Room:</strong>
+    <%= @booking.meetingroom_id %></h1>
 </div>
-
-
-
-
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path, class:"btn btn-dark btn-lg"  %>

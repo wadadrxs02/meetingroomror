@@ -1,39 +1,32 @@
 <p id="notice"><%= notice %></p>
-
 <h1 class="text-center">List of Users</h1>
-  <div class="card">
-<div class="card-body">
-<table id="UserTable" class='table table-striped table-hover table-lg'>
-  <thead class="table-dark ">
-    <tr>
-      <th>Name</th>
-      <th>Phone Number</th>
-      <th>Option</th>
-
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name , user %></td>
-        <td><%= user.phoneno %></td>
-        <td>
-        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger text-danger' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="card">
+  <div class="card-body">
+    <table id="UserTable" class='table table-striped table-hover table-lg'>
+      <thead class="table-dark ">
+        <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.name , user %></td>
+            <td><%= user.phoneno %></td>
+            <td>
+              <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger text-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-</div>
-
-
-
 <br>
-
 <%= link_to '+ New User', new_user_path, class:"btn btn-info btn-lg bg-info text-dark" %>
 <script>
-$(document).ready(function() {
-  var MRTable = $("#UserTable").DataTable({})
-});
+  $(document).ready(function() {
+    var MRTable = $("#UserTable").DataTable({})
+  });
 </script>
