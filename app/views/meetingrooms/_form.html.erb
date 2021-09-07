@@ -1,18 +1,13 @@
-
 <%= simple_form_for(@meetingroom) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
   <div class="form-inputs form-control-lg">
     <%= f.input :name %>
     <%= f.input :capacity %>
-  <br>
-      
-
-  <div class="form-actions">
-    <%= f.button :submit, class:"btn btn-info btn-lg"  %>
-    <%= link_to 'Back', meetingrooms_path, class:"btn btn-danger text-white btn-lg" %>
+    <br>
+    <div class="form-actions">
+      <%= f.button :submit, class:"btn btn-info btn-lg"  %>
+      <%= link_to 'Back', '/', class:"btn btn-danger text-white btn-lg" %>
+    </div>
   </div>
-  </div>
-
 <% end %>

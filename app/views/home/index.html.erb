@@ -3,13 +3,17 @@
   <div class="card-body ">
     <div class="tabs">
       <div class="tab-2">
-        <label for="tab2-1">AVAILIBILIY </label>
-        <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
-        <%# <%= render '/meetingrooms/show' %>
+        <label for="tab2-1">AVAILIBILITY </label>
+        <input id="tab2-1" name="tabs-two" type="radio">
+        <div>
+          <% @meetingroom.each do |meetingroom| %>
+            <%= render partial:'meetingrooms/mrdetails', locals: {mrdetails: meetingroom} %>
+          <% end %>
+        </div>
       </div>
       <div class="tab-2">
         <label for="tab2-2">BOOKING</label>
-        <input id="tab2-2" name="tabs-two" type="radio">
+        <input id="tab2-2" name="tabs-two" type="radio" checked="checked">
         <div>
           <%= render '/bookings/index' %>
         </div>

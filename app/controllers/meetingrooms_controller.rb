@@ -25,7 +25,7 @@ class MeetingroomsController < ApplicationController
 
     respond_to do |format|
       if @meetingroom.save
-        format.html { redirect_to @meetingroom, notice: "Meeting Room was successfully created." }
+        format.html { redirect_to "/", notice: "Meeting Room was successfully created." }
         format.json { render :show, status: :created, location: @meetingroom }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,7 +51,8 @@ class MeetingroomsController < ApplicationController
   def destroy
     @meetingroom.destroy
     respond_to do |format|
-      format.html { redirect_to meetingrooms_url, notice: "Meeting Room was successfully destroyed." }
+      # meetingrooms_url
+      format.html { redirect_to "/", notice: "Meeting Room was successfully destroyed." }
       format.json { head :no_content }
     end
   end

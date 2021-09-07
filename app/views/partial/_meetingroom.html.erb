@@ -3,15 +3,16 @@
     <div class="card-header mb-3">
       <h3>Meeting Rooms</h3>
     </div>
-    <div class="card-body mx-auto mb-3">
-      <ul class="nav nav-pills">
+    <div class="card-body mx-auto mb-3 ">
+      <ul class="nav nav-pills  align-items-center justify-content-center">
         <% Meetingroom.all.each do |meetingroom| %>
-          <li class="active">
-            <%= link_to meetingroom.name, meetingroom , class:"btn btn-info btn-lg text-light mx-1" %>
+          <li class="active mx-1 my-2 ">
+            <%= link_to meetingroom.name, meetingroom , class:"btn btn-info btn-lg text-light " %>
           </li>
         <% end %>
+        <%= link_to '+ New Meeting Room', new_meetingroom_path, class:"btn btn-warning btn-lg text-dark" %>
       </ul>
     </div>
   </div>
-  <hr>
+  <br>
 <% end %>
