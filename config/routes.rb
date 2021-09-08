@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   # get "partial/index"
   resources :bookings
   resources :meetingrooms
-  resources :users
-  # get 'home/index'
   devise_for :admins
   devise_scope :admin do
     authenticated :admin do

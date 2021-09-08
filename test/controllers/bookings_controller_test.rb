@@ -16,8 +16,8 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create booking" do
-    assert_difference('Booking.count') do
-      post bookings_url, params: { booking: { date_book: @booking.date_book, meetingroom_id: @booking.meetingroom_id, pax: @booking.pax, time_end: @booking.time_end, time_start: @booking.time_start, title: @booking.title, user_id: @booking.user_id } }
+    assert_difference("Booking.count") do
+      post bookings_url, params: { booking: { date_book: @booking.date_book, meetingroom_id: @booking.meetingroom_id, pax: @booking.pax, time_end: @booking.time_end, time_start: @booking.time_start, title: @booking.title, admin_id: @booking.admin_id } }
     end
 
     assert_redirected_to booking_url(Booking.last)
@@ -34,12 +34,12 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update booking" do
-    patch booking_url(@booking), params: { booking: { date_book: @booking.date_book, meetingroom_id: @booking.meetingroom_id, pax: @booking.pax, time_end: @booking.time_end, time_start: @booking.time_start, title: @booking.title, user_id: @booking.user_id } }
+    patch booking_url(@booking), params: { booking: { date_book: @booking.date_book, meetingroom_id: @booking.meetingroom_id, pax: @booking.pax, time_end: @booking.time_end, time_start: @booking.time_start, title: @booking.title, admin_id: @booking.admin_id } }
     assert_redirected_to booking_url(@booking)
   end
 
   test "should destroy booking" do
-    assert_difference('Booking.count', -1) do
+    assert_difference("Booking.count", -1) do
       delete booking_url(@booking)
     end
 

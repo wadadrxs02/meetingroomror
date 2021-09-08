@@ -20,11 +20,10 @@ class BookingsTest < ApplicationSystemTestCase
     fill_in "Time end", with: @booking.time_end
     fill_in "Time start", with: @booking.time_start
     fill_in "Title", with: @booking.title
-    fill_in "User", with: @booking.user_id
+    fill_in "User", with: @booking.admin_id
     click_on "Create Booking"
     click_on "Back"
     assert_text "Booking was successfully created"
-    
   end
 
   test "updating a Booking" do
@@ -37,7 +36,7 @@ class BookingsTest < ApplicationSystemTestCase
     fill_in "Time end", with: @booking.time_end
     fill_in "Time start", with: @booking.time_start
     fill_in "Title", with: @booking.title
-    fill_in "User", with: @booking.user_id
+    fill_in "User", with: @booking.admin_id
     click_on "Update Booking"
 
     assert_text "Booking was successfully updated"

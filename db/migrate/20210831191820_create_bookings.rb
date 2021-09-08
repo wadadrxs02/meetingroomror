@@ -6,7 +6,7 @@ class CreateBookings < ActiveRecord::Migration[6.1]
       t.time :time_start
       t.time :time_end
       t.integer :pax
-      t.references :user, null: false, foreign_key: true
+      t.references :admin, null: false, foreign_key: true
       t.references :meetingroom, null: false, foreign_key: true
 
       t.timestamps

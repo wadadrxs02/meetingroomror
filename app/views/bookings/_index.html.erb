@@ -25,13 +25,13 @@
         <% Booking.all.each do |booking| %>
           <tr class="text-center">
             <td><%= link_to booking.title, booking %></td>
-            <td><%= local_time(booking.time_start, format: '%e/%m/%Y') %></td>
+            <td><%= local_time(booking.date_book, format: '%e/%m/%Y') %></td>
             <td><%= local_time(booking.time_start, format: '%l:%M %P') %></td>
             <td><%= local_time(booking.time_end, format: '%l:%M %P') %></td>
             <td><%= booking.pax %></td>
             <td><%= booking.meetingroom_name %></td>
-            <td><%= booking.user_name %></td>
-            <td><%= local_time(booking.date_book, format: '%e/%m/%Y') %></td>
+            <td><%= booking.admin_name %></td>
+            <td><%= local_time(booking.time_start, format: '%e/%m/%Y') %></td>
             <% if current_admin %>
               <% if current_admin.admin? %>
                 <td>

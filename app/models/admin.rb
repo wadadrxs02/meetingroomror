@@ -4,5 +4,6 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: {:admin => 1, :user => 2}
+  enum role: { :admin => 1, :user => 2 }
+  has_many :bookings, dependent: :destroy
 end

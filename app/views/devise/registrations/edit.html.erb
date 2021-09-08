@@ -13,12 +13,20 @@
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_name %></p>
         <% end %>
-        <%# <%= f.input :password,
+        <%= f.input :role, as: :select, collection: get_roles %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_role %></p>
+        <% end %>
+        <%= f.input :phoneno, required: true %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_phoneno %></p>
+        <% end %>
+        <%= f.input :password,
                     required: false,
-                    input_html: { autocomplete: "new-password" }, class:'mb-2' 
+                    input_html: { autocomplete: "new-password" }, class:'mb-2' %>
         <%= f.input :password_confirmation,
                     required: false,
-                    input_html: { autocomplete: "new-password" } 
+                    input_html: { autocomplete: "new-password" } %>
         <%= f.input :current_password,
                     hint: "we need your current password to confirm your changes",
                     required: true,
