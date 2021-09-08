@@ -1,18 +1,48 @@
-<div class="jumbotron">
-  <h1 class="display-4"> <strong>Title:</strong>
-    <%= @booking.title %></h1>
-  <h1 class="display-4"> <strong>Booking Date:</strong>
-    <%= @booking.date_book %></h1>
-  <h1 class="display-4"> <strong>Time start:</strong>
-    <%= @booking.time_start %></h1>
-  <h1 class="display-4"> <strong>Time end:</strong>
-    <%= @booking.time_end %></h1>
-  <h1 class="display-4"> <strong>Pax:</strong>
-    <%= @booking.pax %></h1>
-  <h1 class="display-4"> <strong>User:</strong>
-    <%= @booking.user_id %></h1>
-  <h1 class="display-4"> <strong>Meeting Room:</strong>
-    <%= @booking.meetingroom_id %></h1>
+<div>
+  <h1 class="text-center mb-4">Meeting Room Availibity</h1>
+  <div class="col-xl-5 col-md-6 mb-4 mx-auto">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div>
+              <h5 class="text-primary mb-1">Title:
+                <span style="color: #5a5c69" > <%=  @booking.title %></span></h5>
+            </div>
+            <div >
+              <h5 class="text-primary mb-1"> Booking Date:
+                <span style="color: #5a5c69"> <%= local_time(@booking.time_start, format: '%e/%m/%Y') %></span></h5>
+            </div>
+            <div>
+              <h5 class="text-primary mb-1">Time start:
+                <span style="color: #5a5c69" > <%= local_time(@booking.time_start, format: '%l:%M %P') %></span></h5>
+            </div>
+            <div >
+              <h5 class="text-primary mb-1"> Time end:
+                <span style="color: #5a5c69"> <%= local_time(@booking.time_end, format: '%l:%M %P') %></span></h5>
+            </div>
+            <div>
+              <h5 class="text-primary mb-1">Pax:
+                <span style="color: #5a5c69" > <%=  @booking.pax %></span></h5>
+            </div>
+            <div >
+              <h5 class="text-primary mb-1"> User:
+                <span style="color: #5a5c69"> <%= @booking.user_name %></span></h5>
+            </div>
+            <div >
+              <h5 class="text-primary mb-1"> Meeting Room:
+                <span style="color: #5a5c69"> <%= @booking.meetingroom_name %></span></h5>
+            </div>
+          </div>
+          <div class="col-auto">
+            <% link_to 'Delete', @booking, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger text-danger' %>
+            <%# <i class="fas fa-door-closed fa-2x text-gray-300"></i> %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <%= link_to 'Edit', edit_booking_path(@booking), class:"btn btn-info btn-lg text-white"  %>
+    <%= link_to 'Back', '/', class:"btn btn-danger text-white btn-lg"   %>
+  </div>
 </div>
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', '/', class:"btn btn-dark btn-lg"  %>

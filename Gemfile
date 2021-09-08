@@ -14,13 +14,11 @@ gem "devise", "~> 4.8"
 gem "rails-ujs"
 gem "rails-ui"
 gem "simple_form"
-# gem 'datetime_picker_input'
 gem "momentjs-rails", "~> 2.9", :github => "derekprior/momentjs-rails"
 gem "datetimepicker-rails", github: "zpaulovics/datetimepicker-rails", branch: "master", submodules: true
 gem "bootstrap-sass"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "jquery-datatables", "~> 1.10"
-# gem "bootstrap", "~> 5.0.2"
 gem "local_time", "~> 2.1"
 
 # gem 'redis', '~> 4.0'
