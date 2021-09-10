@@ -1,1 +1,45 @@
-<%= render partial:'meetingrooms/mrdetails', locals: {mrdetails: @meetingroom} %>
+<div class="card mx-auto" style="width:80rem">
+  <div class="card-body ">
+    <div class="tabs">
+      <div class="tab-2">
+        <label for="tab2-1">AVAILIBILITY </label>
+        <input id="tab2-1" name="tabs-two" type="radio" checked="checked" >
+        <div>
+          <div>
+            <h1 class="text-center mb-4">Meeting Room Availibity</h1>
+            <div class="col-xl-5 col-md-6 mb-4 mx-auto">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div>
+                        <h5 class="text-primary mb-1">Name:
+                          <span style="color: #5a5c69" > <%= @meetingroom.name %></span></h5>
+                      </div>
+                      <div >
+                        <h5 class="text-primary mb-1"> Capacity:
+                          <span style="color: #5a5c69"> <%= @meetingroom.capacity %></span></h5>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <%= link_to 'Edit', edit_meetingroom_path(@meetingroom), class:'btn btn-outline-success text-success' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%# <%= link_to 'Edit', edit_meetingroom_path(@meetingroom) |
+          <%= link_to 'Back', meetingrooms_path %>
+          </div>
+        </div>
+      </div>
+      <div class="tab-2">
+        <label for="tab2-2">BOOKING</label>
+        <input id="tab2-2" name="tabs-two" type="radio" >
+        <div>
+          <%= render '/bookings/index' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

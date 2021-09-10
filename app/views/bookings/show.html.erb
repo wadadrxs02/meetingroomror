@@ -1,6 +1,8 @@
-<div>
-  <h1 class="text-center mb-4">Meeting Room Availibity</h1>
-  <div class="col-xl-5 col-md-6 mb-4 mx-auto">
+<div class="card mx-auto" style="max-width: 80rem;">
+  <div class="card-header">
+    <h1 class="text-center mb-4">Booking Details </h1>
+  </div>
+  <div class="col-xl-5 col-md-6 my-4 mx-auto">
     <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -36,7 +38,6 @@
           </div>
           <div class="col-auto">
             <% link_to 'Delete', @booking, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger text-danger' %>
-            <%# <i class="fas fa-door-closed fa-2x text-gray-300"></i> %>
           </div>
         </div>
       </div>

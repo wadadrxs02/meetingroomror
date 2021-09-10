@@ -28,7 +28,7 @@ class MeetingroomsTest < ApplicationSystemTestCase
 
     fill_in "Capacity", with: @meetingroom.capacity
     fill_in "Name", with: @meetingroom.name
-    click_on "Update Meetingroom"
+    click_on "Update Meeting Room"
 
     assert_text "Meeting Room was successfully updated"
     click_on "Back"
