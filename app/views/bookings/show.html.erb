@@ -17,11 +17,11 @@
             </div>
             <div >
               <h5 class="text-primary mb-1"> Booking Date:
-                <span style="color: #5a5c69"> <%= local_time(@booking.time_start, format: '%e/%m/%Y') %></span></h5>
+                <span style="color: #5a5c69"> <%= local_time(@booking.start_time, format: '%e/%m/%Y') %></span></h5>
             </div>
             <div>
               <h5 class="text-primary mb-1">Time:
-                <span style="color: #5a5c69" > <%= local_time(@booking.time_start, format: '%l:%M %P') %> - <%= local_time(@booking.time_end, format: '%l:%M %P') %></span></h5>
+                <span style="color: #5a5c69" > <%= local_time(@booking.start_time, format: '%l:%M %P') %> - <%= local_time(@booking.end_time, format: '%l:%M %P') %></span></h5>
             </div>
             <div>
               <h5 class="text-primary mb-1">Pax:

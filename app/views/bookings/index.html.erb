@@ -1,0 +1,19 @@
+<div class="col-xl-8 col-md-8 mb-4 mx-auto">
+  <div class="card border-left-primary shadow h-100 py-2">
+    <div class="card-body">
+      <% if @bookings.any? %>
+        <% @bookings.each do |booking| %>
+          <%= month_calendar events: @bookings do |date, bookings| %>
+            <%= date.day %>
+            <% bookings.each do |bookings| %>
+              <div>
+                <%= link_to bookings.meetingroom.name%> - 
+                <%= link_to readable_time(bookings.start_time)%>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

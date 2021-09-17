@@ -1,9 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ show edit update destroy ]
-
+  helper_method :booking
   # GET /bookings or /bookings.json
   def index
     @bookings = Booking.all
+    @bookings = Booking.where(start: params[:start_time]..params[:end_time])
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -65,6 +66,10 @@ class BookingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:title, :date_book, :time_start, :time_end, :pax, :admin_id, :meetingroom_id)
+    params.require(:booking).permit(:title, :start_time, :end_time, :pax, :admin_id, :meetingroom_id)
+  end
+
+  def start_time
+    self.booking.start ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
   end
 end

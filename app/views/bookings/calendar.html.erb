@@ -1,0 +1,5 @@
+<% if @meetingroom.bookings.any? %>
+  <% @meetingroom.bookings.each do |booking| %>
+    <%= booking.start_time %>
+  <% end %>
+<% end %>

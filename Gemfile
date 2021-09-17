@@ -20,6 +20,7 @@ gem "bootstrap-sass"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "jquery-datatables", "~> 1.10"
 gem "local_time", "~> 2.1"
+gem "simple_calendar", "~> 2.4"
 
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

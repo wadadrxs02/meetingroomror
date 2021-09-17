@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_02_063649) do
+ActiveRecord::Schema.define(version: 2021_09_14_034251) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,9 +29,8 @@ ActiveRecord::Schema.define(version: 2021_09_02_063649) do
 
   create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
-    t.date "date_book"
-    t.time "time_start"
-    t.time "time_end"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer "pax"
     t.bigint "admin_id", null: false
     t.bigint "meetingroom_id", null: false

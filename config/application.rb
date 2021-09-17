@@ -18,6 +18,7 @@ module MRBookingSystem
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.time_zone = "Kuala Lumpur"
+    # config.time_zone = "Kuala Lumpur"
+
   end
 end

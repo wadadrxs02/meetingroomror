@@ -14,11 +14,10 @@ class BookingsTest < ApplicationSystemTestCase
     visit bookings_url
     click_on "New Booking"
 
-    fill_in "Date book", with: @booking.date_book
     fill_in "Meetingroom", with: @booking.meetingroom_id
     fill_in "Pax", with: @booking.pax
-    fill_in "Time end", with: @booking.time_end
-    fill_in "Time start", with: @booking.time_start
+    fill_in "Time end", with: @booking.end_time
+    fill_in "Time start", with: @booking.start_time
     fill_in "Title", with: @booking.title
     fill_in "User", with: @booking.admin_id
     click_on "Create Booking"
@@ -30,11 +29,10 @@ class BookingsTest < ApplicationSystemTestCase
     visit bookings_url
     click_on "Edit", match: :first
 
-    fill_in "Date book", with: @booking.date_book
     fill_in "Meetingroom", with: @booking.meetingroom_id
     fill_in "Pax", with: @booking.pax
-    fill_in "Time end", with: @booking.time_end
-    fill_in "Time start", with: @booking.time_start
+    fill_in "Time end", with: @booking.end_time
+    fill_in "Time start", with: @booking.start_time
     fill_in "Title", with: @booking.title
     fill_in "User", with: @booking.admin_id
     click_on "Update Booking"

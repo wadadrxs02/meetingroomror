@@ -27,27 +27,24 @@
               </div>
             </div>
           </div>
+          <%# <div id='calendar'></div> %>
           <div class=" mb-4 mx-auto">
             <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body"></div>
-              <table>
-                <tr>
-                  <th>Firstname</th>
-                  <th>Lastname</th>
-                </tr>
-                <tr>
-                  <td>Peter</td>
-                  <td>Griffin</td>
-                </tr>
-                <tr>
-                  <td>Lois</td>
-                  <td>Griffin</td>
-                </tr>
-              </table>
+              <div class="card-body">
+                <% if @bookings %>
+                  <%= week_calendar( number_of_weeks: 5, events: @bookings, start_date: @date) do |date, bookings| %>
+                    <span class="date-str"><%= date.day %></span>
+                    <% bookings.each do |booking| %>
+                      <div> &#8226;
+                        <%= link_to booking.title %> -
+                        <%= link_to readable_time(booking.start_time) %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
-          <%# <%= link_to 'Edit', edit_meetingroom_path(@meetingroom) |
-          <%= link_to 'Back', meetingrooms_path %>
         </div>
       </div>
       <div class="tab-2">
