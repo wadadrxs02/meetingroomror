@@ -32,7 +32,7 @@
             <div class="card border-left-primary shadow h-100 py-2">
               <div class="card-body">
                 <% if @bookings %>
-                  <%= week_calendar( number_of_weeks: 5, events: @bookings, start_date: @date) do |date, bookings| %>
+                  <%= month_calendar(events: @bookings) do |date, bookings| %>
                     <span class="date-str"><%= date.day %></span>
                     <% bookings.each do |booking| %>
                       <div> &#8226;

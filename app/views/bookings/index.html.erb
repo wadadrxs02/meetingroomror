@@ -7,7 +7,7 @@
             <%= date.day %>
             <% bookings.each do |bookings| %>
               <div>
-                <%= link_to bookings.meetingroom.name%> - 
+                <%= link_to bookings.meetingroom.name %> - 
                 <%= link_to readable_time(bookings.start_time)%>
               </div>
             <% end %>
