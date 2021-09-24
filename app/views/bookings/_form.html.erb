@@ -5,26 +5,54 @@
     <%= f.input :title, class:'form-control' %>
   </div>
   <div class="row">
-    <div class="col-md-4 col-sm-12  mb-3">
-      <%= f.input :start_time, as: :datetime, html5: true %>
+    <div class="col-md-4 col-sm-12 ">
+      <%= f.input :datetime_range, as: :string , input_html: { id: 'datetimerange', value: @ttoday} %>
     </div>
-    <div class="col-md-4 col-sm-12 mb-3">
-      <%= f.input :end_time, as: :datetime, html5: true %>
+    <div class="col-md-4 col-sm-12  ">
+      <%= f.input :pax %>
+    </div>
+    <div class="col-md-4 col-sm-12 ">
+      <%= f.association :meetingroom %>
     </div>
   </div>
-  <div class=" mb-3">
-    <%= f.input :pax %>
-  </div>
-  <div class=" mb-3">
-    <%= f.input :admin_id,:as => :hidden, input_html: { value:current_admin.id } %>
-  </div>
-  <div class=" mb-3">
-    <%= f.association :meetingroom %>
-  </div>
+  <%= f.input :admin_id,:as => :hidden, input_html: { value:current_admin.id } %>
   <br>
-  <div class="form-actions col-12">
-    <%= f.button :submit, class:"btn btn-info btn-lg" %>
-    <%= link_to 'Back', '/', class:"btn btn-danger text-white btn-lg"  %>
+  <div class="row">
+    <div class="col-md-2 col-sm-12 ">
+      <%= f.button :submit, class:"btn btn-info btn-lg" %>
+    </div>
+    <div class="col-md-1 col-sm-12 pl-0">
+      <%= link_to 'Back', '/', class:"btn btn-danger text-white btn-lg"  %>
+    </div>
   </div>
 </div>
 <% end %>
+<script>
+  window.addEventListener("load", function (event) {
+      new DateRangePicker('datetimerange', {
+       showCustomRangeLabel: true,
+       timePicker: true,
+       timePickerIncrement: 15,
+       linkedCalendars: true,
+       autoUpdateInput: true,
+       alwaysShowCalendars: true,
+       autoApply: true,
+       opens: 'right',
+       locale: {
+         format: "DD/MM/YYYY hh:mm a",
+        //  format: moment.localeData().longDateFormat('L'),
+         separator: ' - ',
+         applyLabel: 'Apply',
+         cancelLabel: 'Cancel',
+         weekLabel: 'W',
+         customRangeLabel: 'Custom Range',
+         daysOfWeek: moment.weekdaysMin(),
+         monthNames: moment.monthsShort(),
+         firstDay: moment.localeData().firstDayOfWeek()
+       },
+   }, function (start, end, label) {
+     $('#booking_start_time').text(start.format('DD/MM/YYYY hh:mm a'))
+     $('#booking_end_time').text(end.format('DD/MM/YYYY hh:mm a'))
+            })
+    });
+</script>

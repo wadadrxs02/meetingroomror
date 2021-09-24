@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # get 'home/index'
-  # get "partial/index"
+
   resources :bookings
   resources :meetingrooms
   devise_for :admins

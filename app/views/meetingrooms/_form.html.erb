@@ -5,10 +5,16 @@
     <%= f.input :name %>
     <%= f.input :capacity %>
     <br>
-    <div class="form-actions">
-      <%= f.button :submit, class:"btn btn-info btn-lg"  %>
-      <%= link_to 'Delete', @meetingrooms, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-dark text-white btn-lg' %>
-      <%= link_to 'Back', @meetingroom, class:"btn btn-danger text-white btn-lg" %>
+    <div class="row">
+      <div class="col-md-2 col-sm-12 mr-4">
+        <%= f.button :submit, class:"btn btn-info btn-lg"  %>
+      </div>
+      <div class="col-md-1 col-sm-12 ">
+        <%= link_to 'Delete', @meetingrooms, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-dark text-white btn-lg' %>
+      </div>
+      <div class="col-md-2 col-sm-12 ">
+        <%= link_to 'Back', @meetingroom, class:"btn btn-danger text-white btn-lg" %>
+      </div>
     </div>
   </div>
 <% end %>

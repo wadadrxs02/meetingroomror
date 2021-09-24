@@ -16,7 +16,14 @@
 
  */
 @import "simple_calendar";
-@import "bootstrap-datetimepicker"; 
 @import "datatables";
-@import url(../styles/applications.scss);
+@import url(../styles/styles.css);
+
+
+a {
+  color: #1abc9c !important;
+  text-decoration: none;
+  background-color: transparent;
+}
+
 

@@ -14,15 +14,35 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+     today_start = DateTime.now
+     today_end = DateTime.now
+    @today1 = today_start.strftime("%d/%m/%Y %I:15 %P") 
+    @today2 = today_end.strftime("%d/%m/%Y %I:45 %P") 
+     @ttoday = @today1 +' - '+ @today2
   end
-
   # GET /bookings/1/edit
   def edit
+
+    start_time = @booking.start_time
+    end_time = @booking.end_time
+    @today1 = start_time.strftime("%d/%m/%Y %I:15 %P") 
+    @today2 = end_time.strftime("%d/%m/%Y %I:45 %P") 
+    @ttoday = @today1 +' - '+ @today2
   end
 
   # POST /bookings or /bookings.json
   def create
     @booking = Booking.new(booking_params)
+
+    datetime_range = params[:booking][:datetime_range]
+    split = datetime_range.split(" - ")
+    start_time_raw = split[0]
+    end_time_raw = split[1]
+    start_time = Time.parse(start_time_raw)
+    end_time = Time.parse(end_time_raw)
+
+    @booking.start_time = start_time
+    @booking.end_time = end_time
 
     respond_to do |format|
       if @booking.save
