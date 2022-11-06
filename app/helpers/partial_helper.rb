@@ -1,5 +1,5 @@
 module PartialHelper
   def get_roles
-    Admin.roles.map { |k, v| [k.humanize.titleize, k] }
+    User.roles.map { |k, v| [k.humanize.titleize, k] }
   end
 end

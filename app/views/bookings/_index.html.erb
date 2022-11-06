@@ -1,71 +1,19 @@
-<%# <p id="notice"><%= notice %>
-<h1 class="text-center">Booking List</h1>
-<div class="card">
-  <div class="card-body">
-    <table id="BookingTable" class='table table-striped  table-lg'>
-      <thead class="table-dark">
-        <tr class="text-center">
-          <th>        </th>
-          <th >Title</th>
-          <th >Meeting Room</th>
-          <th >Date Event</th>
-          <th >Time start</th>
-          <th >Time end</th>
-          <th >Pax</th>
-          <th >Booking Person</th>
-          <% if current_admin %>
-            <% if current_admin.admin? %>
-              <th >Option</th>
-            <% else %>
+<div class="col-xl-8 col-md-8 mb-4 mx-auto">
+  <div class="card border-left-primary shadow h-100 py-2">
+    <div class="card-body">
+      <% if @bookings.any? %>
+        <% @bookings.each do |booking| %>
+          <%= month_calendar events: @bookings do |date, bookings| %>
+            <%= date.day %>
+            <% bookings.each do |bookings| %>
+              <div>
+                <%= link_to bookings.meetingroom.name %> - 
+                <%= link_to readable_time(bookings.start_time)%>
+              </div>
             <% end %>
           <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <% Booking.all.each do |booking| %>
-          <tr class="text-center">
-            <td></td>
-            <td><%= link_to booking.title, booking %></td>
-            <td><%= booking.meetingroom_name %></td>
-            <td><%= local_time(booking.start_time, format: '%e/%m/%Y') %></td>
-            <td><%= local_time(booking.start_time, format: '%l:%M %P') %></td>
-            <td><%= local_time(booking.end_time, format: '%l:%M %P') %></td>
-            <td><%= booking.pax %></td>
-            <td><%= booking.admin_name %></td>
-            <% if current_admin %>
-              <% if current_admin.admin? %>
-                <td>
-                  <%# <%= link_to 'Edit', edit_booking_path(booking), class:'btn btn-outline-success text-success'  %>
-                  <%= link_to 'delete', booking, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger text-danger ' %>
-                </td>
-              <% else %>
-              <% end %>
-            <% end %>
-          </tr>
         <% end %>
-      </tbody>
-    </table>
+      <% end %>
+    </div>
   </div>
 </div>
-<br>
-<%= link_to '+ New Booking', new_booking_path, class:"btn btn-info btn-lg text-dark" %>
-<script>
-  $(document).ready(function (){
-   var table = $('#BookingTable').DataTable({
-    'columnDefs': [
-       {
-          'targets': 0,
-          'checkboxes': {
-             'selectRow': true
-          }
-       }
-    ],
-    'select': {
-       'style': 'multi'
-    },
-    'order': [[1, 'asc']]
-  });
-  
-  
-  });
-</script>

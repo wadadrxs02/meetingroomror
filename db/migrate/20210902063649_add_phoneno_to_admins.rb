@@ -1,5 +1,5 @@
-class AddPhonenoToAdmins < ActiveRecord::Migration[6.1]
+class AddPhonenoToUsers < ActiveRecord::Migration[6.1]
   def change
-    add_column :admins, :phoneno, :string
+    add_column :users, :phoneno, :string
   end
 end

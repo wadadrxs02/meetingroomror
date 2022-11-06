@@ -1,4 +1,4 @@
-<div class="card mx-auto" style="width:80rem">
+<div class="card mx-auto" style="width:95rem">
   <div class="card-body ">
     <div class="tabs">
       <div class="tab-2">
@@ -21,7 +21,7 @@
                     </span>
                   </h4>
                 </div>
-                <% if @bookings %>
+                <% if @bookings %>.0
                   <%= month_calendar(events: @bookings) do |date, bookings| %>
                     <span class="date-str">
                       <%= date.day %>

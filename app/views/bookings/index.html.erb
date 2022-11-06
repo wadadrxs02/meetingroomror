@@ -1,19 +1,63 @@
-<div class="col-xl-8 col-md-8 mb-4 mx-auto">
-  <div class="card border-left-primary shadow h-100 py-2">
-    <div class="card-body">
-      <% if @bookings.any? %>
-        <% @bookings.each do |booking| %>
-          <%= month_calendar events: @bookings do |date, bookings| %>
-            <%= date.day %>
-            <% bookings.each do |bookings| %>
-              <div>
-                <%= link_to bookings.meetingroom.name %> - 
-                <%= link_to readable_time(bookings.start_time)%>
-              </div>
+<div class="card mx-auto" style="width:98rem">
+  <div class="card-header">
+    <h3>Booking Lists</h3>
+  </div>
+  <div class="card-body">
+    <%= link_to 'New Booking', new_booking_path, class:"btn btn-primary float-end" %>
+    <div class="table-responsive ">
+      <table id="example6" class='display table table-sm'>
+        <thead class="table-light">
+          <tr class="text-center">
+            <th>#</th>
+            <th >Title</th>
+            <th >Meeting Room</th>
+            <th >Date Event</th>
+            <th >Time</th>
+            <th >Pax</th>
+            <th >Booking Person</th>
+            <% if current_user %>
+              <% if current_user.user? %>
+                <th >Option</th>
+              <% else %>
+              <% end %>
             <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% Booking.all.each.with_index(1) do |booking, index| %>
+            <tr class="text-center text-sm">
+              <td><%= index %></td>
+              <td><%= link_to booking.title, booking %></td>
+              <td><%= booking.meetingroom_name %></td>
+              <td><%= local_time(booking.start_time, format: '%e/%m/%Y') %></td>
+              <td><%= local_time(booking.start_time, format: '%l:%M %P') %> - <%= local_time(booking.end_time, format: '%l:%M %P') %></td>
+              <td><%= booking.pax %></td>
+              <td><%= booking.user_name %></td>
+              <% if current_user %>
+                <% if current_user.user? %>
+                  <td>
+                    <%= link_to booking do %>
+                      <span class="badge badge-sm bg-primary">  <i class="far fa-file-alt fa-lg"></i> View
+                      </span>
+                    <% end %>
+                    <%= link_to edit_booking_path(booking) do %>
+                      <span class="badge badge-sm bg-info">  <i class="fa fa-edit fa-lg"></i> Edit
+                      </span>
+                    <% end %>
+                    <%# <%= link_to 'Edit', edit_booking_path(booking), class:'btn btn-outline-success text-success'  %>
+                    <%= link_to booking, method: :delete, data: {confirm: "Are you sure? This action is cannot be undone." } do %>
+                      <span class="badge badge-sm bg-danger">  <i class="fa fa-trash fa-lg"></i> Delete
+                      </span>
+                    <% end %>
+                  </td>
+                <% else %>
+                <% end %>
+              <% end %>
+            </tr>
           <% end %>
-        <% end %>
-      <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
+<br>

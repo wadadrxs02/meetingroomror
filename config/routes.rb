@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   resources :bookings
   resources :meetingrooms
-  devise_for :admins
-  devise_scope :admin do
-    authenticated :admin do
+  devise_for :users
+  devise_scope :user do
+    authenticated :user do
       root "home#index", as: :authenticated_root
     end
 

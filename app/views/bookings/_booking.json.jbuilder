@@ -1,4 +1,4 @@
-json.extract! booking, :id, :title, :start_time, :end_time, :pax, :admin_id, :meetingroom_id, :created_at, :updated_at
+json.extract! booking, :id, :title, :start_time, :end_time, :pax, :user_id, :meetingroom_id, :created_at, :updated_at
 json.url booking_url(booking, format: :json)
 
 date_format = booking.all_day_booking? ? "%Y-%m-%d" : "%Y-%m-%dT%H:%M:%S"

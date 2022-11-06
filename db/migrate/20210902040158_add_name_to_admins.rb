@@ -1,5 +1,5 @@
-class AddNameToAdmins < ActiveRecord::Migration[6.1]
+class AddNameToUsers < ActiveRecord::Migration[6.1]
   def change
-    add_column :admins, :name, :string
+    add_column :users, :name, :string
   end
 end

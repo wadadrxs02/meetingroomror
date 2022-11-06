@@ -21,9 +21,16 @@
 
 
 a {
-  color: #1abc9c !important;
+  // color: #1abc9c !important;
   text-decoration: none;
   background-color: transparent;
+}
+body {
+  background-color: #f7f7f7 !important;
+}
+
+.nowrap{
+  flex-wrap: nowrap !important;
 }
 
 

@@ -1,5 +1,5 @@
-class AddRoleToAdmins < ActiveRecord::Migration[6.1]
+class AddRoleToUsers < ActiveRecord::Migration[6.1]
   def change
-    add_column :admins, :role, :integer
+    add_column :users, :role, :integer
   end
 end

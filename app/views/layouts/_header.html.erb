@@ -1,39 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <h5><a class="navbar-brand" href="/">Meeting Room Booking System</a></h5>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse ml-auto justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav navbar-right mr-4">
-        <% if admin_signed_in? %>
-          <% if current_admin %>
-            <% if current_admin.admin? %>
-              <li class="nav-item">
-                <h5><%= link_to "+ New User", new_admin_registration_path, class: "nav-link text-white" %></h5>
-              </li>
-            <% else %>
-            <% end %>
+  <!-- Navbar -->
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur"
+      data-scroll="false">
+  <div class="container-fluid py-1 px-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="">Pages</a></li>
+        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+      </ol>
+      <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
+    </nav>
+    <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+      <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+      </div>
+      <ul class="navbar-nav  justify-content-end">
+        <% if user_signed_in? %>
+          <% if current_user %>
             <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= current_admin.email %>
+              <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.name %>
               </button>
               <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                <% if current_admin.admin? %>
-                  <h5><%= link_to "Account Settings", edit_admin_registration_path, class: "dropdown-item" %></h5>
+                <% if current_user.user? %>
+                  <h5><%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item" %></h5>
                 <% else %>
                 <% end %>
-                <h5><%= link_to "Log Out", destroy_admin_session_path, method: :delete, class: "dropdown-item" %></h5>
+                <h5><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></h5>
               </div>
             </div>
           <% end %>
         <% else %>
           <li class="nav-item">
-            <h5><%= link_to "Log In", new_admin_session_path, class: "nav-link text-white" %></h5>
+            <h5><%= link_to "Log In", new_user_session_path, class: "nav-link text-white" %></h5>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
-</div>
 </nav>
+<!-- End Navbar -->
