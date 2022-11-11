@@ -17,7 +17,11 @@
  */
 @import "simple_calendar";
 @import "datatables";
-@import url(../styles/styles.css);
+// @import url(../styles/styles.css);
+// @import url(../../../public/assets/css/argon-dashboard.css?v=2.0.4);
+// @import url(../../../public/assets/css/nucleo-icons.css);
+// @import url(../../../public/assets/css/nucleo-svg.css);
+
 
 
 a {
@@ -25,7 +29,7 @@ a {
   text-decoration: none;
   background-color: transparent;
 }
-body {
+.main {
   background-color: #f7f7f7 !important;
 }
 

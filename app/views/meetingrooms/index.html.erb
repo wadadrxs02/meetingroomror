@@ -3,15 +3,17 @@
     <h3>Room List</h3>
   </div>
   <div class="card-body">
-    <%= link_to 'Add Room', new_meetingroom_path, class:"btn btn-primary float-end"  %>
     <div class="table-responsive ">
+      <%= link_to 'Add Room', new_meetingroom_path, class:"btn btn-primary float-start"  %>
       <table id="example6" class='display table table-sm'>
         <thead class="bg-light">
           <tr class="text-center">
             <th>#</th>
             <th>Room Name</th>
-            <th>Room Level - Name</th>
+            <th>Room Level</th>
             <th>Room Capacity</th>
+            <th>Room Type</th>
+            <th>Image</th>
             <th>Option</th>
           </tr>
         </thead>
@@ -20,8 +22,14 @@
             <tr class="align-middle text-center text-sm">
               <td><%= index %> </td>
               <td><%= meetingroom.name %></td>
-              <td> Level <%= meetingroom.capacity %> | Room <%= meetingroom.capacity %> </td>
+              <td> Level <%= meetingroom.capacity %> </td>
               <td><%= meetingroom.capacity %> Pax</td>
+              <td><%= meetingroom.capacity %> Pax</td>
+              <td class="justify-content-center justify-item-center" >
+                <% if meetingroom.image.attached? %>
+                  <%= image_tag meetingroom.image, class: "img-size" %>
+                <% end %>
+              </td>
               <td class="text-center">
                 <%= link_to meetingroom do %>
                   <span class="badge badge-sm bg-primary">  <i class="far fa-file-alt fa-lg"></i> View

@@ -31,6 +31,10 @@
               <h5 class="text-primary mb-1"> Booking Person:
                 <span style="color: #5a5c69"> <%= @booking.user_name %></span></h5>
             </div>
+            <div >
+              <h5 class="text-primary mb-1"> Booking Person:
+                <span style="color: #5a5c69"> <%= @booking.status %></span></h5>
+            </div>
           </div>
           <div class="col-auto">
             <% link_to 'Delete', @booking, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger text-danger' %>

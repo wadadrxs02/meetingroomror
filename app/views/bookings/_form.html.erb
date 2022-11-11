@@ -11,19 +11,18 @@
     <div class="col-md-4 col-sm-12  ">
       <%= f.input :pax %>
     </div>
+    <div class="col-md-4 col-sm-12  ">
+      <%= f.input :status, as: :select, collection: get_status, prompt: nil %>
+    </div>
     <div class="col-md-4 col-sm-12 ">
       <%= f.association :meetingroom %>
     </div>
   </div>
   <%= f.input :user_id,:as => :hidden, input_html: { value:current_user.id } %>
   <br>
-  <div class="row">
-    <div class="col-md-2 col-sm-12 ">
-      <%= f.button :submit, class:"btn btn-info btn-lg" %>
-    </div>
-    <div class="col-md-1 col-sm-12 pl-0">
-      <%= link_to 'Back', '/', class:"btn btn-danger text-white btn-lg"  %>
-    </div>
+  <div class="form-actions">
+    <%= f.button :submit, class:"btn btn-info btn-lg" %>
+    <%= link_to 'Back', '/', class:"btn btn-danger text-white btn-lg"  %>
   </div>
 </div>
 <% end %>

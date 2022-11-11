@@ -1,10 +1,10 @@
 <div class="card mx-auto" style="width:98rem">
   <div class="card-header">
-    <h3>Booking Lists</h3>
+    <h3>Booking List</h3>
   </div>
   <div class="card-body">
-    <%= link_to 'New Booking', new_booking_path, class:"btn btn-primary float-end" %>
     <div class="table-responsive ">
+      <%= link_to 'New Booking', new_booking_path, class:"btn btn-primary float-start" %>
       <table id="example6" class='display table table-sm'>
         <thead class="table-light">
           <tr class="text-center">
@@ -15,6 +15,7 @@
             <th >Time</th>
             <th >Pax</th>
             <th >Booking Person</th>
+            <th >Status</th>
             <% if current_user %>
               <% if current_user.user? %>
                 <th >Option</th>
@@ -33,6 +34,10 @@
               <td><%= local_time(booking.start_time, format: '%l:%M %P') %> - <%= local_time(booking.end_time, format: '%l:%M %P') %></td>
               <td><%= booking.pax %></td>
               <td><%= booking.user_name %></td>
+              <td>
+                <div class="badge badge-sm badge-rounded bg-<%= booking_status_color(booking) %>">
+                  <%= booking.status %> </div>
+              </td>
               <% if current_user %>
                 <% if current_user.user? %>
                   <td>
