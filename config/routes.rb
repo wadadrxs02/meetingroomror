@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :user do
+   resources :users
+  end
   resources :bookings
   resources :meetingrooms
   devise_for :users

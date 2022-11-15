@@ -1,0 +1,13 @@
+<% content_for(:title) do %>
+  User
+<% end %>
+<%= simple_form_for [:user, @user] do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :name %>
+  <%= f.input :role, as: :select, collection: get_roles, required: true  %>
+  <div class="form-actions float-end">
+    <%= f.button :submit, class:"btn btn-primary " %>
+    <%= link_to 'Back', user_users_path, class:"btn btn-warning "  %>
+  </div>
+<% end %>

@@ -1,6 +1,9 @@
-<div class="card mx-auto" style="max-width: 80rem;">
+<% content_for(:title) do %>
+  Add New Booking
+<% end %>
+<div class="card mx-auto" style="width:80rem">
   <div class="card-header">
-    <h2 class="text-center">Add New Booking</h2>
+    <h3>Add New Booking</h3>
   </div>
   <div class="card-body ">
     <%= render 'form',  booking: @booking %>

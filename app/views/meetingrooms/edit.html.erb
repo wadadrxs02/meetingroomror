@@ -1,10 +1,17 @@
-<div class="card mx-auto" style="max-width: 80rem;">
-  <div class="card-header">
-    <h1 class="text-center">Edit Meeting Room</h1>
-  </div>
-  <div class="card-body">
-    <%= render 'form', meetingroom: @meetingroom %>
-  </div>
-</div>
+<% content_for(:title) do %>
+  Edit Room Info
+<% end %>
+<% if current_user %>
+  <% if current_user.admin? %>
+    <div class="card mx-auto" style="max-width: 80rem;">
+      <div class="card-header">
+        <h3>Edit Room</h3>
+      </div>
+      <div class="card-body">
+        <%= render 'form', meetingroom: @meetingroom %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 <%# <%= link_to 'Show', @meetingroom, class:"btn btn-success btn-lg" |
  link_to 'Back', meetingrooms_path, class:"btn btn-dark btn-lg" %>

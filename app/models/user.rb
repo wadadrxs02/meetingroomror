@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   enum role: { :admin => 1, :user => 2 }
   has_many :bookings, dependent: :destroy
+  has_many :approval
+
 end

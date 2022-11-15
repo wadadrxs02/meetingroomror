@@ -33,7 +33,6 @@ class BookingsController < ApplicationController
   # POST /bookings or /bookings.json
   def create
     @booking = Booking.new(booking_params)
-
     datetime_range = params[:booking][:datetime_range]
     split = datetime_range.split(" - ")
     start_time_raw = split[0]
@@ -86,10 +85,19 @@ class BookingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:title, :start_time, :end_time, :pax, :status, :user_id, :meetingroom_id)
+    params.require(:booking).permit(:title, :start_time, :end_time, :pax, :status, :reason, :user_id, :meetingroom_id)
   end
 
   def start_time
     self.booking.start ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  end
+
+  def validate_time_slot(booking)
+    @bookings = Booking.where(start: params[:start_time]..params[:end_time])
+
+    if booking.meetingroom.where("`end_time` > ? AND `start_time` < ?", booking.start_time, booking.end_time).exists?
+    flash[:danger] = "slot has already been taken please choose another.!"
+    redirect_to @booking
+    end
   end
 end

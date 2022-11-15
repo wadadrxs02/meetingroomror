@@ -1,20 +1,25 @@
+<% content_for(:title) do %>
+  Rooms
+<% end %>
 <div class="card mx-auto" style="width:98rem">
   <div class="card-header ">
     <h3>Room List</h3>
   </div>
   <div class="card-body">
     <div class="table-responsive ">
-      <%= link_to 'Add Room', new_meetingroom_path, class:"btn btn-primary float-start"  %>
+      <% if current_user.admin? %>
+        <%= link_to 'Add Room', new_meetingroom_path, class:"btn btn-primary float-start"  %>
+      <% end %>
       <table id="example6" class='display table table-sm'>
         <thead class="bg-light">
           <tr class="text-center">
             <th>#</th>
             <th>Room Name</th>
-            <th>Room Level</th>
-            <th>Room Capacity</th>
-            <th>Room Type</th>
+            <th>Level</th>
+            <th>Capacity</th>
+            <th>Type</th>
             <th>Image</th>
-            <th>Option</th>
+            <%# <th>Option</th> %>
           </tr>
         </thead>
         <tbody class="table-bordered">
@@ -22,28 +27,30 @@
             <tr class="align-middle text-center text-sm">
               <td><%= index %> </td>
               <td><%= meetingroom.name %></td>
-              <td> Level <%= meetingroom.capacity %> </td>
+              <td> Level <%= meetingroom.level %> </td>
               <td><%= meetingroom.capacity %> Pax</td>
-              <td><%= meetingroom.capacity %> Pax</td>
+              <td><%= meetingroom.room_type %></td>
               <td class="justify-content-center justify-item-center" >
                 <% if meetingroom.image.attached? %>
                   <%= image_tag meetingroom.image, class: "img-size" %>
                 <% end %>
               </td>
-              <td class="text-center">
-                <%= link_to meetingroom do %>
+              <% if current_user.admin? %>
+                <td class="text-center">
+                  <%# <%= link_to meetingroom do
                   <span class="badge badge-sm bg-primary">  <i class="far fa-file-alt fa-lg"></i> View
                   </span>
                 <% end %>
-                <%= link_to edit_meetingroom_path(meetingroom) do %>
-                  <span class="badge badge-sm bg-info">  <i class="fa fa-edit fa-lg"></i> Edit
-                  </span>
-                <% end %>
-                <%= link_to meetingroom, method: :delete, data: {confirm: "Are you sure? This action is cannot be undone." } do %>
-                  <span class="badge badge-sm bg-danger">  <i class="fa fa-trash fa-lg"></i> Delete
-                  </span>
-                <% end %>
-              </td>
+                  <%= link_to edit_meetingroom_path(meetingroom) do %>
+                    <span class="badge badge-sm bg-info">  <i class="fa fa-edit fa-lg"></i> Edit
+                    </span>
+                  <% end %>
+                  <%= link_to meetingroom, method: :delete, data: {confirm: "Are you sure? This action is cannot be undone." } do %>
+                    <span class="badge badge-sm bg-danger">  <i class="fa fa-trash fa-lg"></i> Delete
+                    </span>
+                  <% end %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>

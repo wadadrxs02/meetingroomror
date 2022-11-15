@@ -1,0 +1,43 @@
+<% content_for(:title) do %>
+  Users
+<% end %>
+<div class="card mx-auto" style="width:98rem">
+  <div class="card-header">
+    <h4 class="card-title">List Users</h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive ">
+      <%= link_to "New user", new_user_user_path, class: "btn btn-primary mb-4" %>
+      <table id="example6" class='display table table-sm'>
+        <thead class="table-light">
+          <tr class="text-center">
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each.with_index do |user, index| %>
+            <tr class="text-center text-sm">
+              <td><%= index + 1 %></td>
+              <td><%= link_to user.name, [:user, user] %></td>
+              <td><%= user.email %></td>
+              <td><%= user.role.humanize.titleize %></td>
+              <td>
+                <%= link_to edit_user_user_path(user) do %>
+                  <span class="badge badge-sm bg-info">  <i class="fa fa-edit fa-lg"></i> Edit
+                  </span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%# 
+  <% if user_can_delete?(current_user, user) 
+<%= link_to "Delete", user_user_path(user), method: :delete, class: "badge badge-rounded badge-danger" 
+<% end %>

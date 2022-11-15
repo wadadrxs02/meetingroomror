@@ -1,17 +1,28 @@
 <%= simple_form_for(@meetingroom) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <div class="form-inputs form-control-lg">
-    <%= f.input :name %>
-    <%= f.input :capacity %>
-    <%= f.input :level %>
-    <%= f.input :type %>
-    <%= f.input :image, as: :file %>
-    <br>
-    <div class="form-actions">
-      <%= f.button :submit, class:"btn btn-info btn-lg" %>
-      <%= link_to 'Back', '/', class:"btn btn-danger text-white btn-lg"  %>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 ">
+      <%= f.input :name, label: "Room Name" %>
     </div>
+    <div class="col-md-6 col-sm-12 ">
+      <%= f.input :room_type, as: :select, collection: get_room_type, required: true  %>
+    </div>
+    <div class="col-md-6 col-sm-12 ">
+      <%= f.input :capacity %>
+    </div>
+    <div class="col-md-6 col-sm-12 ">
+      <%= f.input :level , as: :integer, input_html: { min: '1', max: '31' }%>
+    </div>
+    <div class="col-md-12 col-sm-12 ">
+      <%= f.label :Upload_Image %>
+      <%= f.input :image,label: false, as: :file %>
+    </div>
+  </div>
+  <br>
+  <div class="form-actions float-end">
+    <%= f.button :submit, class:"btn btn-primary" %>
+    <%= link_to 'Back', meetingrooms_path, class:"btn btn-warning "  %>
   </div>
 </div>
 <% end %>

@@ -67,7 +67,7 @@ class MeetingroomsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def meetingroom_params
-    params.require(:meetingroom).permit(:name, :capacity, :image, :level, :type)
+    params.require(:meetingroom).permit(:name, :capacity, :image, :level, :room_type)
   end
 
   def start_date

@@ -1,0 +1,19 @@
+<div class="card mx-auto" style="width:98rem">
+  <div class="card-header">
+    <h4 class="card-title">User</h4>
+  </div>
+  <div class="card-body">
+    <dl>
+      <dt>Email</dt>
+      <dd><%= @user.email %></dd>
+      <dt>Name</dt>
+      <dd><%= @user.name %></dd>
+      <dt>Role</dt>
+      <dd><%= @user.role.humanize.titleize %></dd>
+    </dl>
+    <div class="mt-4 text-right">
+      <%= link_to "Back", user_users_path, class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_user_user_path(@user.id), class: "btn btn-info" %>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>MEETING ROOM BOOKING SYSTEM</title>
+    <link rel="icon" href="/assets/unikl.png">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +47,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Pending Bookings</p>
                       <h5 class="font-weight-bolder">
-                        <%= Booking.count %>
+                        <%= Booking.pending.count %>
                       </h5>
                       <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">View Details</span>
@@ -70,7 +71,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Rejected Bookings</p>
                       <h5 class="font-weight-bolder">
-                        <%= Booking.count %>
+                        <%= Booking.rejected.count %>
                       </h5>
                       <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">View Details</span>
@@ -94,7 +95,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Approved Bookings</p>
                       <h5 class="font-weight-bolder">
-                        <%= Booking.count %>
+                        <%= Booking.approved.count %>
                       </h5>
                       <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">View Details</span>
@@ -114,13 +115,10 @@
       </div>
       <br>
       <div class="container-fluid mx-auto">
-        <% if notice %>
-          <%= render "layouts/alert" %>
-        <% end %>
-        <% if current_page?(edit_user_registration_path)%>
-        <% else %>
-          <%= render :partial => '/partial/meetingroom'%>
-        <% end %>
+        <%# <% if current_page?(edit_user_registration_path)
+        <% else 
+          <%= render :partial => '/partial/meetingroom'
+        <% end
         <%= yield %>
         <br>
       </div>

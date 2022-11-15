@@ -4,6 +4,11 @@
     max-height: 200px;
     overflow-y: auto;
 }
+
+.disable {
+  background: #f2f2f2 !important;
+  pointer-events:none !important;
+}
 // Place all the styles related to the bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/

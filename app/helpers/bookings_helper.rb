@@ -17,4 +17,10 @@ module BookingsHelper
     end
     "warning"
   end
+
+   def booking_can_act?(booking)
+    !booking.rejected? and !booking.approved?
+  end
+
+ 
 end

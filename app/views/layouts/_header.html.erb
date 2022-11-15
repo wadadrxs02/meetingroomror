@@ -4,33 +4,38 @@
   <div class="container-fluid py-1 px-3">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="">Pages</a></li>
-        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="">Dashboard</a></li>
+        <li class="breadcrumb-item text-sm text-white active" aria-current="page"> <% if content_for?(:title) %>
+            <%= yield :title %>
+          <% end %></li>
       </ol>
-      <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
     </nav>
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
       <div class="ms-md-auto pe-md-3 d-flex align-items-center">
       </div>
-      <ul class="navbar-nav  justify-content-end">
-        <% if user_signed_in? %>
+      <ul class="navbar-nav justify-content-end">
+        <%# <% if user_signed_in? 
           <% if current_user %>
-            <div class="dropdown">
-              <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= current_user.name %>
-              </button>
-              <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                <% if current_user.user? %>
-                  <h5><%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item" %></h5>
-                <% else %>
-                <% end %>
-                <h5><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></h5>
-              </div>
-            </div>
-          <% end %>
-        <% else %>
+        <div class="dropdown">
+          <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.name %> <br>
+            <small>
+              ( <%= current_user.role %> )
+            </small>
+          </button>
+          <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+            <% if current_user.admin? %>
+              <h5><%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item" %></h5>
+              <h5><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></h5>
+            <% else %>
+              <h5><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></h5>
+            <% end %>
+          </div>
+        </div>
+        <%# <% end 
+        <% else 
           <li class="nav-item">
-            <h5><%= link_to "Log In", new_user_session_path, class: "nav-link text-white" %></h5>
+            <h5><%= link_to "Log In", new_user_session_path, class: "nav-link text-white" </h5>
           </li>
         <% end %>
       </ul>
