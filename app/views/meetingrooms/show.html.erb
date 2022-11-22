@@ -9,8 +9,8 @@
           <div class=" mb-4 mx-auto">
             <div class="card border-left-primary shadow h-100 py-2 " >
               <div class="card-body">
-                <div class="left col-xl-5 line  pb-0 m-2" >
-                  <h4 class="ok">
+                <div class="left col-xl-5  m-2" >
+                  <h4 class="">
                     <img src="/assets/meeting-room.png" style="width: 3rem"> :
                     <span style="color: #5a5c69">
                       <%= link_to @meetingroom.name, edit_meetingroom_path(@meetingroom) %>
@@ -21,7 +21,7 @@
                     </span>
                   </h4>
                 </div>
-                <% if @bookings %>.0
+                <% if @bookings %>
                   <%= month_calendar(events: @bookings) do |date, bookings| %>
                     <span class="date-str">
                       <%= date.day %>

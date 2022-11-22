@@ -19,7 +19,9 @@
             <th>Capacity</th>
             <th>Type</th>
             <th>Image</th>
-            <%# <th>Option</th> %>
+            <% if current_user.admin? %>
+              <th>Option</th>
+            <% end %>
           </tr>
         </thead>
         <tbody class="table-bordered">
@@ -37,10 +39,10 @@
               </td>
               <% if current_user.admin? %>
                 <td class="text-center">
-                  <%# <%= link_to meetingroom do
-                  <span class="badge badge-sm bg-primary">  <i class="far fa-file-alt fa-lg"></i> View
-                  </span>
-                <% end %>
+                  <%= link_to meetingroom do %>
+                    <span class="badge badge-sm bg-primary">  <i class="far fa-file-alt fa-lg"></i> View
+                    </span>
+                  <% end %>
                   <%= link_to edit_meetingroom_path(meetingroom) do %>
                     <span class="badge badge-sm bg-info">  <i class="fa fa-edit fa-lg"></i> Edit
                     </span>

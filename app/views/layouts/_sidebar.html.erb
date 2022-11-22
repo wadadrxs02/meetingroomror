@@ -32,13 +32,15 @@
           <span class="nav-link-text ms-1">Rooms</span>
         <% end %>
       </li>
-      <li class="nav-item"><%= link_to '/user/users', class: "nav-link" do %>
-          <div
+      <% if current_user.admin? %>
+        <li class="nav-item"><%= link_to '/user/users', class: "nav-link" do %>
+            <div
               class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="fa fa-user me-sm-1 text-lg text-warning"></i>     </div>
-          <span class="nav-link-text ms-1"> User</span>
-        <% end %>
-      </li>
+              <i class="fa fa-user me-sm-1 text-lg text-warning"></i>     </div>
+            <span class="nav-link-text ms-1"> User</span>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </aside>

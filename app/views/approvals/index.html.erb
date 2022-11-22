@@ -1,0 +1,14 @@
+<h1 class="text-center">Approvals</h1>
+<table class="responsive nowrap table table-hover" id="dttb-approvals" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <thead>
+    <tr>
+      <th data-data="bookings">Bookings</th>
+      <th data-data="status">Status</th>
+      <th data-data="reason">Reason</th>
+      <th data-data="action_by">Action by</th>
+      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+    </tr>
+  </thead>
+</table>
+<br>
+<%= link_to 'New Approval', new_approval_path %>

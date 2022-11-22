@@ -10,6 +10,8 @@ module MRBookingSystem
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    # config.hosts << "e6cb-175-143-40-126.ap.ngrok.io"
+# config.hosts << "/.+\.ngrok\.io:\d+/"
 
     # Configuration for the application, engines, and railties goes here.
     #

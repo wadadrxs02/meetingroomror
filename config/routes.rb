@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   resources :bookings
   resources :meetingrooms
+  root "home#index"
   devise_for :users
   devise_scope :user do
     authenticated :user do
